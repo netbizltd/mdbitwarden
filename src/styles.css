@@ -1,0 +1,112 @@
+html.theme_light #mdbitwarden {
+  --color-border: var(--secondary-alt);
+  --color-code: black;
+  --color-code-bg: rgb(240, 240, 240);
+  --color-bq-border: lightgrey;
+  --color-tocentry: var(--primary);
+}
+
+html.theme_dark #mdbitwarden {
+  --color-border: white;
+  --color-code: #bac0ce;
+  --color-code-bg: #111;
+  --color-bq-border: lightgrey;
+  --color-tocentry: #6a99f0;
+}
+
+#mdbitwarden {
+  --color-h: white;
+  --color-h-bg: #6a99f0;
+  margin-block: 8px;
+  border: 3px solid var(--color-border);
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 100px;
+  max-height: 33vh;
+  overflow: auto;
+}
+
+#mdbitwarden #notestoc {
+  padding-bottom: 8px;
+  border-bottom: 3px dashed var(--color-border);
+  margin-bottom: 8px;
+}
+
+#mdbitwarden #notestoc .tocentry {
+  cursor: pointer;
+  margin-left: calc(16px * var(--level));
+  color: var(--color-tocentry);
+}
+
+#mdbitwarden #notestoc .tocentry:hover {
+  text-decoration: underline;
+}
+
+#mdbitwarden #notesmarkdown {
+  counter-reset: h2counter h3counter h4counter;
+}
+
+#mdbitwarden #notesmarkdown h1,
+#mdbitwarden #notesmarkdown h2,
+#mdbitwarden #notesmarkdown h3,
+#mdbitwarden #notesmarkdown h4 {
+  background-color: var(--color-h-bg);
+  color: var(--color-h);
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+#mdbitwarden #notesmarkdown h1 {
+  counter-reset: h2counter h3counter h4counter;
+}
+
+#mdbitwarden #notesmarkdown h2 {
+  counter-increment: h2counter;
+  counter-reset: h3counter h4counter;
+}
+
+#mdbitwarden #notesmarkdown h2::before {
+  content: counter(h2counter) ". ";
+}
+
+#mdbitwarden #notesmarkdown h3 {
+  counter-increment: h3counter;
+  counter-reset: h4counter;
+}
+
+#mdbitwarden #notesmarkdown h3::before {
+  content: counter(h2counter) "." counter(h3counter) ". ";
+}
+
+#mdbitwarden #notesmarkdown h4 {
+  counter-increment: h4counter;
+}
+
+#mdbitwarden #notesmarkdown h4::before {
+  content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ". ";
+}
+
+#mdbitwarden #notesmarkdown pre {
+  margin-left: 8px;
+  overflow-x: auto;
+  line-height: 1.05rem;
+  background-color: var(--color-code-bg);
+  border-radius: 2px;
+  padding: 4px 6px;
+}
+
+#mdbitwarden #notesmarkdown pre code {
+  padding-inline: 0px;
+}
+
+#mdbitwarden #notesmarkdown code {
+  background: var(--color-code-bg);
+  color: var(--color-code);
+  padding-inline: 4px;
+}
+
+#mdbitwarden #notesmarkdown blockquote {
+  border-left: 6px solid var(--color-bq-border);
+  padding-left: 8px;
+}
+/*# sourceMappingURL=styles.css.map */
